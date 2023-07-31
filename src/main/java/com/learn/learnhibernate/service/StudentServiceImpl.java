@@ -60,22 +60,18 @@ public class StudentServiceImpl {
         teacher.setLastName("Kumar");
         teacher.setEmail("kumarpradeep@bukuWarung.com");
 
-        User user = new BusDriver();
-        user.setEmail("userObject.gmail.com");
-        user.setFirstName("UserHavingNBusdriver");
-        user.setLastName("UserHavingBusdriver");
 
         BusDriver busDriver = new BusDriver();
         busDriver.setBusNumber(5);
-        user.setEmail("busdriuver.gmail.com");
+        busDriver.setEmail("busdriuver.gmail.com");
         busDriver.setFirstName("BusDriverInBusDriver");
         busDriver.setLastName("BusDriverInBusDriver");
         userRepository.save(busDriver);
-        userRepository.save(teacher);
-        return userRepository.save(user);
+
+        return  userRepository.save(busDriver);
     }
 
-    public List<User> getAll() {
+    public List<?> getAll() {
         return userRepository.findAll();
     }
 }
