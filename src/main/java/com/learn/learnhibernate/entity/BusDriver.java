@@ -1,4 +1,4 @@
-package com.learn.learnhibernate.entity.enums;
+package com.learn.learnhibernate.entity;
 
 import com.learn.learnhibernate.entity.User;
 import lombok.Getter;
@@ -14,7 +14,6 @@ import javax.persistence.Entity;
 @Entity
 @Setter
 @NoArgsConstructor
-@DiscriminatorValue(value = "DRIVER")
 public class BusDriver extends User {
     private int busNumber;
 }

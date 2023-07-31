@@ -4,7 +4,7 @@ import com.learn.learnhibernate.entity.Address;
 import com.learn.learnhibernate.entity.Student;
 import com.learn.learnhibernate.entity.Teacher;
 import com.learn.learnhibernate.entity.User;
-import com.learn.learnhibernate.entity.enums.BusDriver;
+import com.learn.learnhibernate.entity.BusDriver;
 import com.learn.learnhibernate.entity.enums.Status;
 import com.learn.learnhibernate.repository.StudentRepository;
 import com.learn.learnhibernate.repository.UserRepository;
