@@ -28,6 +28,10 @@ public class StudentController {
 
         return  ResponseEntity.ok(service.getStudentById(id));
     }
+    @GetMapping("/")
+    public ResponseEntity<?> getAll(){
+        return ResponseEntity.ok(service.getAll());
 
+    }
 
 }
