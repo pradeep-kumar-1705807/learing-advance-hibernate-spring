@@ -18,14 +18,16 @@ public class StudentController {
     @Autowired private StudentServiceImpl service;
 
     @PostMapping("/")
-    public ResponseEntity<Student> addStudent() {
-        service.addStudent();
-        return  ResponseEntity.ok( service.addStudent());
+    public ResponseEntity<?> addStudent() {
+
+        return  ResponseEntity.ok(  service.addUser());
     }
 
     @PostMapping("/{id}")
-    public ResponseEntity<Student> addStudent(@PathVariable("id") String id) {
+    public ResponseEntity<?> addStudent(@PathVariable("id") String id) {
 
         return  ResponseEntity.ok(service.getStudentById(id));
     }
+
+
 }
