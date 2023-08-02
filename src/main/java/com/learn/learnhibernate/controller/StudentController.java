@@ -20,7 +20,7 @@ public class StudentController {
     @PostMapping("/")
     public ResponseEntity<?> addStudent() {
 
-        return  ResponseEntity.ok(  service.addUser());
+        return  ResponseEntity.ok(  service.addStudent());
     }
 
     @PostMapping("/{id}")
@@ -33,5 +33,7 @@ public class StudentController {
         return ResponseEntity.ok(service.getAll());
 
     }
+
+
 
 }

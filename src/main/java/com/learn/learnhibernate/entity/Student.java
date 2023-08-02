@@ -11,6 +11,7 @@ import lombok.ToString;
 
 import javax.persistence.AttributeOverride;
 import javax.persistence.AttributeOverrides;
+import javax.persistence.CascadeType;
 import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
@@ -23,6 +24,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.MapKeyColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.OrderColumn;
 import javax.persistence.Table;
@@ -66,10 +68,9 @@ public class Student {
 
     @ElementCollection
     @CollectionTable(name = "image")
-    @MapKeyColumn(name = "image_name")
     @OrderBy(value = "image_name DESC")
-    @Column(name = "image_url")
-    private Map<String, String> images = new LinkedHashMap<>();
+    @Column(name = "image_name")
+    private Set<String> images = new LinkedHashSet<>();
 
     @Embedded
     private Address address;
@@ -88,4 +89,7 @@ public class Student {
 
     @Enumerated(EnumType.STRING)
     private Status status;
+
+    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    private List<Course> courses = new ArrayList<>();
 }

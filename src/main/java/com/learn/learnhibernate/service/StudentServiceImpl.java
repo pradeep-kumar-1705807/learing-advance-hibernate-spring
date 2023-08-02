@@ -1,6 +1,7 @@
 package com.learn.learnhibernate.service;
 
 import com.learn.learnhibernate.entity.Address;
+import com.learn.learnhibernate.entity.Course;
 import com.learn.learnhibernate.entity.Student;
 import com.learn.learnhibernate.entity.Teacher;
 import com.learn.learnhibernate.entity.User;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -31,8 +33,7 @@ public class StudentServiceImpl {
                 .firstName("pradeep")
                 .lastName("kumar")
                 .email("kumarpradee@gmail.com")
-                .images(Arrays.asList("image-4","image-1","image-43").stream().collect(Collectors.toMap(
-                        str -> str,str -> "https://www.cdn.com/"+str)))
+                .images(Arrays.asList("image-4","image-1","image-43").stream().collect(Collectors.toSet()))
                 .address(Address.builder()
                         .pinCode("834009")
                         .city("ranchi")
@@ -44,8 +45,21 @@ public class StudentServiceImpl {
                         .street("highway")
                         .build())
                 .status(Status.INACTIVE)
+
                 .build();
-     return repository.save(student);
+
+        List<Course> courses = Arrays.asList(Course.builder()
+                .courseName("MATHS")
+                .student(student)
+                .build(),Course.builder()
+                .courseName("ENGLISH")
+                .student(student)
+                .build(),Course.builder()
+                .courseName("HINDI")
+                .student(student)
+                .build());
+        student.setCourses(courses);
+        return repository.saveAndFlush(student);
     }
 
     @SneakyThrows
