@@ -90,6 +90,7 @@ public class Student {
     @Enumerated(EnumType.STRING)
     private Status status;
 
+    // test
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
     private List<Course> courses = new ArrayList<>();
 }
