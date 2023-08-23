@@ -70,16 +70,11 @@ public class StudentServiceImpl {
     public User addUser() {
         Teacher teacher = new Teacher();
         teacher.setSalary("5000");
-        teacher.setFirstName("Pradeep");
-        teacher.setLastName("Kumar");
-        teacher.setEmail("kumarpradeep@bukuWarung.com");
+
 
 
         BusDriver busDriver = new BusDriver();
         busDriver.setBusNumber(5);
-        busDriver.setEmail("busdriuver.gmail.com");
-        busDriver.setFirstName("BusDriverInBusDriver");
-        busDriver.setLastName("BusDriverInBusDriver");
         userRepository.save(busDriver);
 
         return  userRepository.save(busDriver);
